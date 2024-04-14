@@ -8,7 +8,7 @@ const Page = () => {
   return (
       <Layout>
         <div>
-          <h1>Welcome to the Page what's </h1>
+          <h1>Welcome to the Page</h1>
           <p>This is a sample page that links to the search page.</p>
           <Link href="/search">
 
