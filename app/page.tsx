@@ -1,8 +1,7 @@
-import Description from "../components/Description";
-
+import Description from '../components/description';
 import Link from 'next/link';
 import React from 'react';
-import Layout from './layout'; 
+import Layout from './layout';
 const Page = () => {
   return (
     <div>
