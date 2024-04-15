@@ -10,7 +10,7 @@ const SearchForm = ({ onSearch }) => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className="search-box" onSubmit={handleSubmit}>
             <input
                 type="text"
                 value={query}
