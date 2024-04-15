@@ -21,8 +21,7 @@
     "next": "14.2.1",
     "openai": "^4.33.1",
     "react": "^18",
-    "react-dom": "^18",
-    "webextension-polyfill": "^0.10.0"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@types/node": "^20.12.7",
