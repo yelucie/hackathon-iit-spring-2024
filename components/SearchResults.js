@@ -1,10 +1,17 @@
-// components/SearchResults.js
+import Link from 'next/link';
 
 const SearchResults = ({ results }) => {
     return (
         <ul>
-            {results.map((item, index) => (
-                <li key={index}>{item.title}</li> // Adjust according to your data structure
+            {results.map((item) => (
+                <li key={item.id}>
+                    <Link href={`/artwork/${item.id}`}>
+                        <a>
+                            <h2>{item.title}</h2>
+                            <p>{item.thumbnail.alt_text}</p>
+                        </a>
+                    </Link>
+                </li>
             ))}
         </ul>
     );

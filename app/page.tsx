@@ -1,14 +1,11 @@
-import Description from "../components/Description";
 
 import Link from 'next/link';
 import React from 'react';
-import Layout from './layout'; 
+import Layout from './layout';
 const Page = () => {
   return (
     <div>
-    <div>
-      <Description text={"Hello this is a text in english! Please translate it!"} />
-    </div>
+
       <Layout>
         <div>
           <h1>Welcome to the Page</h1>
