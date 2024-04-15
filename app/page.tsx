@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <div>
     <div>
-      <Description text={"Hello this is a text in english! Please translate it!"} />
+      <Description text={"Hello this is a text in english! Please translate it in French!"} />
     </div>
       <Layout>
         <div>

@@ -1,27 +1,28 @@
-import axios from 'axios';
+import OpenAI from "openai";
 import dotenv from 'dotenv';
+
 dotenv.config();
+const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY, dangerouslyAllowBrowser: true});
 
-const apiKey = process.env.OPENAI_KEY;
-console.log(process.env);
-
-const summarizeText = async (text) => {
-    console.log(apiKey);
+async function summarizeText(text) {
     try {
-        const response = await axios.post('https://api.openai.com/v1/engines/turbo-3.5/completions', {
-            prompt: text,
-            temperature: 0.5
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-            },
-        });
-        return response;
+        const completion = await openai.chat.completions.create({
+            messages: [
+                { role: "system", content: "You are a helpful translator." },
+                { role: "user", content: text }
+            ],
+            model: "gpt-3.5-turbo",
+            max_tokens: 100,
+            temperature: 0.5,
+            stream: true,
+          });
+        
+          console.log(completion.choices[0]);
+          return completion;
     } catch (error) {
-        console.error('Error summarizing text:', error.response ? error.response.data : error.message);
+        console.error('Error summarizing text:', error);
         return null;
     }
-};
+}
 
 module.exports = { summarizeText };

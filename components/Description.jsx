@@ -1,23 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { summarizeText } from '../app/api/translate';
+import { summarizeText } from '../pages/api/translate';
 
 const Description = ({ text }) => {
     const [summary, setSummary] = useState('');
 
-    useEffect(() => {
-        const fetchSummary = async () => {
-            const summarizedText = await summarizeText(text);
-            if (summarizedText) {
-                console.log(summarizedText);
-                setSummary(summarizedText.data.choices[0].text);
-            } else {
-                setSummary('Error summarizing text');
-            }
-        };
-        fetchSummary();
-    }, [text]);
+    summarizeText(text).then((response) => {
+        if (response) {
+            setSummary(response.choices[0].message.content);
+        }
+    });
 
     return (
         <div>
