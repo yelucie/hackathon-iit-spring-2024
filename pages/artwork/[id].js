@@ -23,12 +23,13 @@ const ArtworkDetail = ({ artwork, config, info }) => {
             <img src={imageUrl} alt={artwork.thumbnail.alt_text} style={{ width: '100%', height: 'auto' }} />
             <p>{artwork.alt_titles || "No alternate titles"}</p>
             <p>{artwork.date_display || "Date not available"}</p>
-            <p>{artwork.artist_titles ? `Artist(s): ${artwork.artist_titles.join(', ')}` : "Artist(s) not listed"}</p>
+            <p>{artwork.artist_display || "Artist(s) not listed"}</p>
             <p>{artwork.medium_display || "Medium not specified"}</p>
             <p>{artwork.dimensions || "Dimensions not available"}</p>
             <p>License: <a href={info.license_links[0]} target="_blank" rel="noopener noreferrer">{info.license_text}</a></p>
             <p>More information: <a href={artwork.api_link} target="_blank" rel="noopener noreferrer">API Link</a></p>
             <p>Visit on <a href={config.website_url} target="_blank" rel="noopener noreferrer">Art Institute Website</a></p>
+            <div dangerouslySetInnerHTML={{ __html: artwork.description }}></div> {/* Display the HTML formatted description */}
         </div>
     );
 };
